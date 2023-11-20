@@ -14,6 +14,8 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   sensor_msgs
   std_msgs
+  tf2_ros
+  gazebo_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -122,6 +124,12 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
+add_executable(model_state_to_pose_stamped src/model_state_to_pose_stamped.cpp)
+target_link_libraries(model_state_to_pose_stamped ${catkin_LIBRARIES})
+
+add_executable(model_state_to_tf src/model_state_to_tf.cpp)
+target_link_libraries(model_state_to_tf ${catkin_LIBRARIES})
+
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
